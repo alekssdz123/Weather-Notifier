@@ -1,7 +1,10 @@
 import requests
+from win11toast import toast
+
 
 from translate import translate_weather
 
+city = 'Tukums'
 url = "https://api.openweathermap.org/data/2.5/forecast?lat=56.9669&lon=23.1534&appid=b1e1a0d37b486e563a13ed0ec0dce85b"
 
 def get_response(url):
@@ -22,10 +25,4 @@ humidity = response["list"][0]["main"]["humidity"]
 wind_speed = response["list"][0]["wind"]["speed"]
 description = translate_weather(response["list"][0]["weather"][0]["description"])
 
-
-print(response)
-print(temp)
-print(feels_like)
-print(humidity)
-print(wind_speed)
-print(description)
+toast(f'Погода {city}', f'{description} \nТемпература: {temp}°С \nОщущается как: {feels_like}°С \nВлажность: {humidity}% \nСкорость ветра: {wind_speed}', icon='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQny7IDfxx07zNe7dstOfXjfmcXdW4gO16p-Q&s')
