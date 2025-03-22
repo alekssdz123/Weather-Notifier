@@ -1,96 +1,96 @@
 def translate_weather(description):
     match description:
         case "thunderstorm with light rain":
-            return "гроза с небольшим дождем"
+            return "Гроза с небольшим дождем"
         case "thunderstorm with rain":
-            return "гроза с дождем"
+            return "Гроза с дождем"
         case "thunderstorm with heavy rain":
-            return "гроза с сильным дождем"
+            return "Гроза с сильным дождем"
         case "light thunderstorm":
-            return "слабая гроза"
+            return "Слабая гроза"
         case "thunderstorm":
-            return "гроза"
+            return "Гроза"
         case "heavy thunderstorm":
-            return "сильная гроза"
+            return "Сильная гроза"
         case "ragged thunderstorm":
-            return "порывистая гроза"
+            return "Порывистая гроза"
         case "thunderstorm with light drizzle":
-            return "гроза с небольшим моросящим дождем"
+            return "Гроза с небольшим моросящим дождем"
         case "thunderstorm with drizzle":
-            return "гроза с моросящим дождем"
+            return "Гроза с моросящим дождем"
         case "thunderstorm with heavy drizzle":
-            return "гроза с сильным моросящим дождем"
+            return "Гроза с сильным моросящим дождем"
         case "light intensity drizzle":
-            return "слабый моросящий дождь"
+            return "Слабый моросящий дождь"
         case "drizzle":
-            return "моросящий дождь"
+            return "Моросящий дождь"
         case "heavy intensity drizzle":
-            return "сильный моросящий дождь"
+            return "Сильный моросящий дождь"
         case "light rain":
-            return "небольшой дождь"
+            return "Небольшой дождь"
         case "moderate rain":
-            return "умеренный дождь"
+            return "Умеренный дождь"
         case "heavy intensity rain":
-            return "сильный дождь"
+            return "Сильный дождь"
         case "very heavy rain":
-            return "очень сильный дождь"
+            return "Очень сильный дождь"
         case "extreme rain":
-            return "чрезвычайно сильный дождь"
+            return "Чрезвычайно сильный дождь"
         case "freezing rain":
-            return "ледяной дождь"
+            return "Ледяной дождь"
         case "light snow":
-            return "небольшой снег"
+            return "Небольшой снег"
         case "snow":
-            return "снег"
+            return "Снег"
         case "heavy snow":
-            return "сильный снегопад"
+            return "Сильный снегопад"
         case "sleet":
-            return "мокрый снег"
+            return "Мокрый снег"
         case "shower sleet":
-            return "ливневый мокрый снег"
+            return "Ливневый мокрый снег"
         case "light rain and snow":
-            return "небольшой дождь со снегом"
+            return "Небольшой дождь со снегом"
         case "rain and snow":
-            return "дождь со снегом"
+            return "Дождь со снегом"
         case "light shower snow":
-            return "небольшой ливневый снег"
+            return "Небольшой ливневый снег"
         case "shower snow":
-            return "ливневый снег"
+            return "Ливневый снег"
         case "heavy shower snow":
-            return "сильный ливневый снег"
+            return "Сильный ливневый снег"
         case "mist":
-            return "туман"
+            return "Туман"
         case "smoke":
-            return "дымка"
+            return "Дымка"
         case "haze":
-            return "мгла"
+            return "Мгла"
         case "sand/dust whirls":
-            return "пыльные вихри"
+            return "Пыльные вихри"
         case "fog":
-            return "густой туман"
+            return "Густой туман"
         case "clear sky":
-            return "ясное небо"
+            return "Ясное небо"
         case "few clouds":
-            return "малооблачно"
+            return "Малооблачно"
         case "scattered clouds":
-            return "рассеянные облака"
+            return "Рассеянные облака"
         case "broken clouds":
-            return "облачность"
+            return "Облачность"
         case "overcast clouds":
-            return "пасмурно"
+            return "Пасмурно"
         case "tornado":
-            return "торнадо"
+            return "Торнадо"
         case "tropical storm":
-            return "тропический шторм"
+            return "Тропический шторм"
         case "hurricane":
-            return "ураган"
+            return "Ураган"
         case "cold":
-            return "холодно"
+            return "Холодно"
         case "hot":
-            return "жарко"
+            return "Жарко"
         case "windy":
-            return "ветрено"
+            return "Ветрено"
         case "hail":
-            return "град"
+            return "Град"
         case _:
-            return "неизвестное погодное явление"
+            return "Неизвестное погодное явление"
