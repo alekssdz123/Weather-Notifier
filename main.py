@@ -2,7 +2,6 @@ import requests
 from time import sleep
 from win11toast import toast
 
-
 from translate import translate_weather
 
 city = 'Tukums'
@@ -26,7 +25,7 @@ def check_internet():
         return False
 
 while check_internet() == False:
-    sleep(10)
+    sleep(1)
     check_internet()
 
 response = get_response(url)
