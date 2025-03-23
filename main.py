@@ -1,4 +1,5 @@
 import requests
+from time import sleep
 from win11toast import toast
 
 
@@ -6,6 +7,7 @@ from translate import translate_weather
 
 city = 'Tukums'
 url = "https://api.openweathermap.org/data/2.5/forecast?lat=56.9669&lon=23.1534&appid=b1e1a0d37b486e563a13ed0ec0dce85b"
+
 
 def get_response(url):
     response = requests.get(url).json()
@@ -16,6 +18,16 @@ def kelvin_to_celsius(kelvin):
     celsius = kelvin - 273.15
     return celsius
 
+def check_internet():
+    try:
+        response = requests.get('https://www.google.com', timeout=5)
+        return True
+    except:
+        return False
+
+while check_internet() == False:
+    sleep(10)
+    check_internet()
 
 response = get_response(url)
 
