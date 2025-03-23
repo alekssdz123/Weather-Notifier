@@ -24,7 +24,7 @@ Well, it shows:
 - 4\. Registered account in openweathermap
 
 [Create account in openweathermap](https://home.openweathermap.org/users/sign_in)
-[Install Python](https://www.python.org/downloads/)
+[Install Python](https://www.python.org/downloads)
 
 ### To install *requests* and *win11toast* libaries:
 
