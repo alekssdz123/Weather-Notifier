@@ -44,13 +44,13 @@ You can download the files in two ways:
 ### Method 1: Cloning the Repository (Recommended)  
 1. Make sure you have **Git** installed. If not, download it from [git-scm.com](https://git-scm.com/downloads).  
 2. Open **Terminal / Command Prompt** (`cmd` or `PowerShell` on Windows, `Terminal` on macOS/Linux).  
-3. Run the following command, replacing `USERNAME` and `REPOSITORY` with the correct values:  
+3. Run the following command:  
    ```sh
-   git clone https://github.com/USERNAME/REPOSITORY.git
+   git clone https://github.com/alekssdz123/Weather-script.git
    ```
 4. Navigate to the repository folder:  
    ```sh
-   cd REPOSITORY
+   cd [PATH TO REPOSITORY]
    ```
 5. The scripts are now on your PC.
 
@@ -58,3 +58,30 @@ You can download the files in two ways:
 1. Open the repository on GitHub.  
 2. Click **Code** → **Download ZIP**.  
 3. Extract the downloaded archive to a convenient folder.  
+
+## How to Autorun a Python Script Using a .bat File  
+
+### Creating a .bat File  
+
+To run a Python script automatically on startup, follow these steps:  
+
+1. Open **Notepad**.  
+2. Paste the following code, replacing `C:\PATH_TO_YOUR_PYTHON_SCRIPT` and `C:\PATH_TO_PYTHON` with the actual path to your script and Python:  
+
+   ```bat
+   @echo off
+   start "" "C:\PATH_TO_YOUR_PYTHON_SCRIPT"
+   ```
+
+3. Click File → Save As.
+4. Choose "All Files" as the file type.
+5. Name it run_script.bat and save it in a convenient location.
+
+### Saving a .bat file to Windows Startup
+
+1. Press Win + R
+2. Type `shell:startup`
+3. Press Enter. This will open the Startup folder.
+4. Copy and paste run_script.bat into this folder.
+5. The script will now run every time Windows starts.
+
