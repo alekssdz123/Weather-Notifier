@@ -91,5 +91,5 @@ To run a Python script automatically on startup, follow these steps:
 ### Open script in main.py 
 
 1. Replace city name in 7 line to your city
-2. Replace url to: https://api.openweathermap.org/data/2.5/forecast?lat=[CITY LATITUDE]&lon=[CITY LONGITUDE]&appid=[YOUR API KEY FROM OPENWEATHERMAP]
+2. Replace url to: ` https://api.openweathermap.org/data/2.5/forecast?lat=[CITY LATITUDE]&lon=[CITY LONGITUDE]&appid=[YOUR API KEY FROM OPENWEATHERMAP] `
 3. Save changes
