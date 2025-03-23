@@ -25,4 +25,4 @@ humidity = response["list"][0]["main"]["humidity"]
 wind_speed = response["list"][0]["wind"]["speed"]
 description = translate_weather(response["list"][0]["weather"][0]["description"])
 
-toast(f'Погода {city}', f'{description} \nТемпература: {temp}°С \nОщущается как: {feels_like}°С \nВлажность: {humidity}% \nСкорость ветра: {wind_speed}', icon='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQny7IDfxx07zNe7dstOfXjfmcXdW4gO16p-Q&s')
+toast(f'Погода {city}', f'{description} \nТемпература: {temp}°С \nОщущается как: {feels_like}°С \nВлажность: {humidity}% \nСкорость ветра: {wind_speed}')
