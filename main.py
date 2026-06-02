@@ -24,16 +24,17 @@ def check_internet():
     except:
         return False
 
-while check_internet() == False:
-    sleep(1)
-    check_internet()
 
-response = get_response(url)
+if __name__ == "__main__":
+    while check_internet() == False:
+        sleep(1)
+        check_internet()
+    response = get_response(url)
 
-temp = round(kelvin_to_celsius(response["list"][0]["main"]["temp"]), 1)
-feels_like = round(kelvin_to_celsius(response["list"][0]["main"]["feels_like"]), 1)
-humidity = response["list"][0]["main"]["humidity"]
-wind_speed = response["list"][0]["wind"]["speed"]
-description = translate_weather(response["list"][0]["weather"][0]["description"])
+    temp = round(kelvin_to_celsius(response["list"][0]["main"]["temp"]), 1)
+    feels_like = round(kelvin_to_celsius(response["list"][0]["main"]["feels_like"]), 1)
+    humidity = response["list"][0]["main"]["humidity"]
+    wind_speed = response["list"][0]["wind"]["speed"]
+    description = translate_weather(response["list"][0]["weather"][0]["description"])
 
-toast(f'Погода {city}', f'{description} \nТемпература: {temp}°С \nОщущается как: {feels_like}°С \nВлажность: {humidity}% \nСкорость ветра: {wind_speed}')
+    toast(f'Погода {city}', f'{description} \nТемпература: {temp}°С \nОщущается как: {feels_like}°С \nВлажность: {humidity}% \nСкорость ветра: {wind_speed}')
