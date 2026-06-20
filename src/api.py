@@ -11,12 +11,18 @@ def getCoordinatesByLocation(city="London", country_code="UK", api_key=None):
         return "You must set config."
     
     url = f"http://api.openweathermap.org/geo/1.0/direct?q={city},{country_code}&appid={api_key}"
-    response = get_response(url)
+    
+    try:
+        response = get_response(url)
 
-    return {
-        "lat": response[0]["lat"],
-        "lon": response[0]["lon"]
-    }
+        return {
+            "lat": response[0]["lat"],
+            "lon": response[0]["lon"]
+        }
+    
+    except Exception as e:
+        print(f"Failed to load data from openweather API. {e}")
+
 
 def getLocationWeather():
     config_data = read_config()
@@ -39,3 +45,6 @@ def getLocationWeather():
     url = f"https://api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&appid={api_key}"
     response = get_response(url)
     return response
+
+if __name__ == "__main__":
+    print(getLocationWeather())
