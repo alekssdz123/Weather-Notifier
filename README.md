@@ -71,7 +71,7 @@ To run a Python script automatically on startup, follow these steps:
 
    ```bat
    @echo off
-   start "" "C:\PATH_TO_YOUR_PYTHON_SCRIPT"
+   start "C:\[PATH_TO_PYTHON]" "C:\[PATH_TO_YOUR_PYTHON_SCRIPT]"
    ```
 
 3. Click File → Save As.
