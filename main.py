@@ -3,6 +3,7 @@ from time import sleep
 
 from src.output import weather_notification
 from src.api import getLocationWeather
+from src.config import read_config
 
 def check_internet():
     try:
@@ -21,7 +22,7 @@ def main():
         print("You must set config.")
         return None
 
-    weather_notification(response, lang="EN")
+    weather_notification(response, read_config()["lang"])
     
 if __name__ == "__main__":
     main()
