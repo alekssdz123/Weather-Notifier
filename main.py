@@ -18,7 +18,7 @@ def main():
 
     response = getLocationWeather()
     if response == None:
-        print("You must set API key")
+        print("You must set config.")
         return None
 
     weather_notification(response, lang="EN")

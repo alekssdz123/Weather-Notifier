@@ -1,4 +1,5 @@
 from src.translate import translate_weather
+from src.config import read_config
 from win11toast import toast
 
 def kelvin_to_celsius(kelvin):
@@ -17,7 +18,7 @@ def prepareData(api_response, lang="EN"):
         description = api_response["list"][0]["weather"][0]["description"]
 
     return {
-        "city": None, # Get from config
+        "city": read_config()["city"],
         "temp": temp,
         "feels_like": feels_like,
         "humidity": humidity,

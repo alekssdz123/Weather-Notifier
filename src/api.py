@@ -1,12 +1,14 @@
 import requests
 
+from src.config import read_config
+
 def get_response(url):
     response = requests.get(url).json()
     return response
 
 def getCoordinatesByLocation(city="London", country_code="UK", api_key=None):
     if api_key == None:
-        return "You must set API key"
+        return "You must set config."
     
     url = f"http://api.openweathermap.org/geo/1.0/direct?q={city},{country_code}&appid={api_key}"
     response = get_response(url)
@@ -17,11 +19,16 @@ def getCoordinatesByLocation(city="London", country_code="UK", api_key=None):
     }
 
 def getLocationWeather():
-    city = "Tukums" # Get later from config
-    country_code = "LV" # Get later from config
-    api_key = "b1e1a0d37b486e563a13ed0ec0dce85b" # Get later from config
+    config_data = read_config()
+    if config_data["city"] == None:
+        coordinates = getCoordinatesByLocation()
+        
+    else:
+        city = config_data["city"]
+        country_code = config_data["country_code"]
+        api_key = config_data["api_key"]
+        coordinates = getCoordinatesByLocation(city, country_code, api_key)
 
-    coordinates = getCoordinatesByLocation(city, country_code, api_key)
 
     if type(coordinates) != dict: # if api_key == None
         return None
