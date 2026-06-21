@@ -1,6 +1,8 @@
 from pathlib import Path
 import json
 
+CONFIG_PATH = "config.json"  # FIX problem with config creating in autorun folder if script is started from .bat file
+
 def read_file(file_path):
     try:
         if Path(file_path).is_file() == False:
@@ -18,8 +20,7 @@ def read_file(file_path):
         print(f"Error. Failed to read file {file_path}")
 
 def read_config():
-    config_path = "config.json"
-    data = read_file(config_path)
+    data = read_file(CONFIG_PATH)
 
     return {
         "city": data["city"],
@@ -28,16 +29,32 @@ def read_config():
         "lang": data["lang"]
     }
 
-def create_config(file_path):
+def create_config(file_path, city=None, country_code=None, api_key=None, lang=None):
     data = {
-        "city": None,
-        "country_code": None,
-        "api_key": None,
-        "lang": None
+        "city": city,
+        "country_code": country_code,
+        "api_key": api_key,
+        "lang": lang
     }
 
     json_data = json.dumps(data, indent=4)
     with open(file_path, "w") as file:
         file.write(json_data)
 
-read_file("config.json")
+def update_config(new_data):
+    old_config = read_config()
+
+    if new_data["city"] == "":
+        new_data["city"] = old_config["city"]
+
+    if new_data["country_code"] == "":
+        new_data["country_code"] = old_config["country_code"]
+
+    if new_data["api_key"] == "":
+        new_data["api_key"] = old_config["api_key"]
+
+    if new_data["lang"] == "":
+        new_data["lang"] = old_config["lang"]
+
+    create_config(CONFIG_PATH, new_data["city"], new_data["country_code"], new_data["api_key"], new_data["lang"])
+
