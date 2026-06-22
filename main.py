@@ -1,7 +1,7 @@
 import requests
 from time import sleep
 
-from src.output import weather_notification
+from src.ui.notifier import show_notification
 from src.api import getLocationWeather
 from src.config import read_config
 
@@ -22,7 +22,7 @@ def main():
         print("You must set config.")
         return None
 
-    weather_notification(response, read_config()["lang"])
+    show_notification(response, read_config()["lang"])
     
 if __name__ == "__main__":
     main()
