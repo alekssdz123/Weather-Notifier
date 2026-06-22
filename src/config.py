@@ -1,7 +1,8 @@
 from pathlib import Path
 import json
 
-CONFIG_PATH = "config.json"  # FIX problem with config creating in autorun folder if script is started from .bat file
+BASE_DIR = Path(__file__).resolve().parent.parent
+CONFIG_PATH = BASE_DIR / "config.json"
 
 def read_file(file_path):
     try:
