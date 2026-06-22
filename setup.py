@@ -1,5 +1,28 @@
+import subprocess
+import sys
+import os
+from pathlib import Path
 from time import sleep
+
+from src.config import CONFIG_PATH
 from src.config import update_config
+from src.config import create_config
+
+STARTUP_PATH = Path(os.environ["APPDATA"]) / r"Microsoft\Windows\Start Menu\Programs\Startup\run_weather_script.bat"
+
+def check_requirements():
+    try:
+        import win11toast
+        import requests
+        return True
+    except ImportError as e:
+        print(f"ERROR. Requirement {e.name} is not installed.")
+        return False
+
+def install_requirements():
+    requirements_file = "requirements.txt"
+    subprocess.check_call([sys.executable, "-m", "pip", "install", "-r", requirements_file])
+    print("Requirements installed")
 
 def get_py_path():
     python_path = None
@@ -18,8 +41,19 @@ def get_py_path():
 
     return python_path
 
-def create_bat_file():
-    pass
+def check_startup_file():
+    return Path(STARTUP_PATH).is_file()
+
+def create_startup_file():
+    py_path = get_py_path()
+    absoulte_mainpy_path = Path("main.py").resolve()
+    file_content = f'start "{py_path}" "{absoulte_mainpy_path}"'
+
+    with open(STARTUP_PATH, "w") as file:
+        file.write(file_content)
+
+def check_config():
+    return Path(CONFIG_PATH).is_file()
 
 def input_config_data():
     print("Set city (If you want to leave it as it is, leave the blank empty)")
@@ -45,8 +79,45 @@ def set_config():
     data = input_config_data()
     update_config(data)
 
-def cli(): # implement change config / installer here
-    pass
+def install():
+    if not check_requirements():
+        install_requirements()
+    print("Requirements installed")
+    if not check_startup_file():
+        create_startup_file()
+    print("Startup file created")
+    if not check_config():
+        create_config()
+    print("Config.json created")
+
+def setup_cli():
+    print("Welcome in weather script setup!")
+    while True:
+        try:
+            print("Options:")
+            print("1. Install\t2. Set config\t3.Exit\n")
+            option = input("Select your option: ")
+
+            match option.lower().replace(" ", ""):
+                case "1" | "install":
+                    install()
+                    print("\nEverything installed.\n")
+                case "2" | "setconfig":
+                    try:
+                        print("Set config.\n")
+                        set_config()
+                        print("\nConfig changed successfully.\n")
+                    except Exception as e:
+                        print(f"Failed to change config {e}\n")
+                case "3" | "exit":
+                    print("Exit.")
+                    break
+                case _:
+                    print("\nInvalid option.\n")
+                    continue
+        except Exception as e:
+            print(f"ERROR. {e}")
+        
 
 if __name__ == "__main__":
-    print(get_py_path())
+    setup_cli()
