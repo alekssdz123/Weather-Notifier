@@ -1,6 +1,6 @@
 import requests
 
-from src.config import read_config
+from src.core.config import read_config
 
 def get_response(url):
     response = requests.get(url).json()

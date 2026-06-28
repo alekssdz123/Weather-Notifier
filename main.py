@@ -2,8 +2,8 @@ import requests
 from time import sleep
 
 from src.ui.notifier import show_notification
-from src.api import getLocationWeather
-from src.config import read_config
+from src.core.api import getLocationWeather
+from src.core.config import read_config
 
 def check_internet():
     try:

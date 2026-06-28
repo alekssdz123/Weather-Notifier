@@ -4,9 +4,9 @@ import os
 from pathlib import Path
 from time import sleep
 
-from src.config import CONFIG_PATH
-from src.config import update_config
-from src.config import create_config
+from src.core.config import CONFIG_PATH
+from src.core.config import update_config
+from src.core.config import create_config
 
 STARTUP_PATH = Path(os.environ["APPDATA"]) / r"Microsoft\Windows\Start Menu\Programs\Startup\run_weather_script.bat"
 

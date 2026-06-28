@@ -1,5 +1,5 @@
 from src.service.translate import translate_weather
-from src.config import read_config
+from src.core.config import read_config
 
 def kelvin_to_celsius(kelvin):
     celsius = kelvin - 273.15
@@ -26,3 +26,4 @@ def prepareData(api_response, lang="EN"):
         "wind_speed": wind_speed,
         "description": description
     }
+

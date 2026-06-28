@@ -1,7 +1,7 @@
 from pathlib import Path
 import json
 
-BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = Path(__file__).resolve().parent.parent.parent
 CONFIG_PATH = BASE_DIR / "config.json"
 
 def read_file(file_path):
