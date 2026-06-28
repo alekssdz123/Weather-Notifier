@@ -22,7 +22,6 @@ def check_requirements():
 def install_requirements():
     requirements_file = "requirements.txt"
     subprocess.check_call([sys.executable, "-m", "pip", "install", "-r", requirements_file])
-    print("Requirements installed")
 
 def get_py_path():
     python_path = None
@@ -56,17 +55,11 @@ def check_config():
     return Path(CONFIG_PATH).is_file()
 
 def input_config_data():
-    print("Set city (If you want to leave it as it is, leave the blank empty)")
-    city = input("Enter city name: ")
-
-    print("Set country code (for example LV, US, EN, etc.) (If you want to leave it as it is, leave the blank empty)")
-    country_code = input("Enter country code: ")
-
-    print("Set language (RU/EN) (If you want to leave it as it is, leave the blank empty)")
-    lang = input("Enter language: ")
-
-    print("Set API key (If you want to leave it as it is, leave the blank empty)")
-    api_key = input("Enter API key: ")
+    print("Set config (If you want to leave it as it is, leave the blank empty)")
+    city = input("City: ")
+    country_code = input("Country code (LV, US etc.): ")
+    lang = input("Language (RU/EN): ")
+    api_key = input("API key: ")
 
     return {
         "city": city.lower().capitalize().replace(" ", ""),
@@ -104,7 +97,6 @@ def setup_cli():
                     print("\nEverything installed.\n")
                 case "2" | "setconfig":
                     try:
-                        print("Set config.\n")
                         set_config()
                         print("\nConfig changed successfully.\n")
                     except Exception as e:
