@@ -30,7 +30,7 @@ def check_requirements():
         import requests
         return True
     except ImportError as e:
-        print(f"ERROR. Requirement {e.name} is not installed.")
+        print(f"Installing required packages.")
         return False
 
 def install_requirements():
