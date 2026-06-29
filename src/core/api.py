@@ -45,6 +45,3 @@ def getLocationWeather():
     url = f"https://api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&appid={api_key}"
     response = get_response(url)
     return response
-
-if __name__ == "__main__":
-    print(getLocationWeather())
