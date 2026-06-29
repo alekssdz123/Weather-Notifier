@@ -24,20 +24,7 @@ def install_requirements():
     subprocess.check_call([sys.executable, "-m", "pip", "install", "-r", requirements_file])
 
 def get_py_path():
-    python_path = None
-    
-    print("\nPython path")
-    print("To know where your python is located, you should print `where python` in CMD")
-    
-    while True:
-        python_path = input("Enter python path: ")
-        python_path = python_path.replace(" ", "")
-        
-        if python_path.split("\\")[-1] == "python.exe":
-            break
-
-        print("Invalid python.exe path.")
-
+    python_path = sys.executable
     return python_path
 
 def check_startup_file():
