@@ -20,10 +20,16 @@ A simple Python script that shows the current weather in your city using Windows
 
 Before installing, make sure you have:
 
-* Python 3.12 or newer
+* Python 3.12 or 3.13
 * Windows 10/11
 * OpenWeatherMap account
 * OpenWeatherMap API key
+
+> **Note**
+>
+> Python **3.14 is currently not supported** because one of the notification dependencies (`winsdk`) is not yet compatible.
+> This problem will be solved in future releases
+
 
 Create an account here:
 
