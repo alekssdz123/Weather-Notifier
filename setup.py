@@ -10,6 +10,20 @@ from src.core.config import create_config
 
 STARTUP_PATH = Path(os.environ["APPDATA"]) / r"Microsoft\Windows\Start Menu\Programs\Startup\run_weather_script.bat"
 
+def check_python_version():
+    version = sys.version_info
+
+    if version < (3, 12):
+        print("Python 3.12 or newer is required.")
+        return False
+
+    if version >= (3, 14):
+        print("Python 3.14 is not yet supported.")
+        print("Please install Python 3.12 or 3.13.")
+        return False
+
+    return True
+
 def check_requirements():
     try:
         import win11toast
@@ -72,6 +86,10 @@ def install():
 
 def setup_cli():
     print("Welcome in weather script setup!")
+    if not check_python_version():
+        print("Exit.")
+        return
+    
     while True:
         try:
             print("Options:")
