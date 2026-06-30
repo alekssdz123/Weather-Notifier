@@ -1,4 +1,4 @@
-from src.service.translate import translate_weather
+from src.service.translate_description import translate_weather
 from src.core.config import read_config
 
 def kelvin_to_celsius(kelvin):
