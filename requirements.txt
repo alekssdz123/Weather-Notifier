@@ -1,2 +1,2 @@
 requests==2.32.3
-win11toast==0.35
+desktop-notifier==6.2.0
