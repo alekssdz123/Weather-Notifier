@@ -16,12 +16,6 @@ def check_python_version():
     if version < (3, 12):
         print("Python 3.12 or newer is required.")
         return False
-
-    if version >= (3, 14):
-        print("Python 3.14 is not yet supported.")
-        print("Please install Python 3.12 or 3.13.")
-        return False
-
     return True
 
 def check_requirements():
