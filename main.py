@@ -1,4 +1,5 @@
 import requests
+import asyncio
 from time import sleep
 
 from src.ui.notifier import show_notification
@@ -22,7 +23,7 @@ def main():
         print("You must set config.")
         return None
 
-    show_notification(response, read_config()["lang"])
+    asyncio.run(show_notification(response, read_config()["lang"]))
     
 if __name__ == "__main__":
     main()

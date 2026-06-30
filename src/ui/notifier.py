@@ -1,20 +1,28 @@
-from win11toast import toast
+from desktop_notifier import DesktopNotifier
 
 from src.service.weather_service import prepareData
+from src.service.translate_message import translations
 
 def format_message(response, lang):
     data = prepareData(response, lang)
-    if lang == "RU":
-        output_message = f"Погода {data["city"]} \n{data["description"]} \nТемпература: {data["temp"]}°С \nОщущается как: \
-{data["feels_like"]}°С \nВлажность: {data["humidity"]}% \nСкорость ветра: {data["wind_speed"]}"
-        
-    else:
-        output_message = f"Weather in {data["city"]} \n{data["description"].capitalize()} \nTemprature: {data["temp"]}°С \nFeels like: \
-{data["feels_like"]}°С \nHumidity: {data["humidity"]}% \nWind speed: {data["wind_speed"]}"
+    tr = translations[lang]
+
+    return {
+        "title": f"{tr['title']} {data['city']}",
+        "message": (
+            f"{data['description'].capitalize()}, {data['temp']}°C\n"
+            f"{tr['feels_like']} {data['feels_like']}°C\n"
+            f"{tr['humidity']} {data['humidity']}% | "
+            f"{tr['wind']} {data['wind_speed']} m/s"
+        ),
+    }
+
+
+async def show_notification(response, lang):
+    notifier = DesktopNotifier()
+    output = format_message(response, lang)
     
-    return output_message
-
-
-def show_notification(response, lang):
-    message = format_message(response, lang)
-    toast(message)
+    await notifier.send(
+        title=output["title"],
+        message=output["message"],
+    )

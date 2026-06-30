@@ -26,7 +26,7 @@ def check_python_version():
 
 def check_requirements():
     try:
-        import win11toast
+        import desktop_notifier
         import requests
         return True
     except ImportError as e:
