@@ -41,7 +41,7 @@ def check_startup_file():
 def create_startup_file():
     py_path = get_py_path()
     absoulte_mainpy_path = Path("main.py").resolve()
-    file_content = f'start "{py_path}" "{absoulte_mainpy_path}"'
+    file_content = f'@echo off\n"{py_path}" "{absoulte_mainpy_path}"'
 
     with open(STARTUP_PATH, "w") as file:
         file.write(file_content)
