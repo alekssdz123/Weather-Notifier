@@ -14,7 +14,7 @@ A simple Python script that shows the current weather in your city using Windows
 
 ## Preview
 
-![Notification Preview](screenshots/notification_example.png)
+![Notification Preview](images/notification_example.png)
 
 ## Requirements
 

@@ -1,3 +1,4 @@
+import pathlib
 from desktop_notifier import DesktopNotifier
 
 from src.service.weather_service import prepareData
@@ -21,8 +22,10 @@ def format_message(response, lang):
 async def show_notification(response, lang):
     notifier = DesktopNotifier()
     output = format_message(response, lang)
+    icon_path = pathlib.Path(__file__).parent.parent.parent / "images" / "logo.png"
     
     await notifier.send(
         title=output["title"],
         message=output["message"],
+        icon=icon_path
     )
