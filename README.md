@@ -1,6 +1,6 @@
 # Weather Script
 
-A simple Python script that shows the current weather in your city using Windows notifications every time you start your PC.
+A simple Python application that displays the current weather as a desktop notification every time you start your computer.
 
 ## Features
 
@@ -20,16 +20,10 @@ A simple Python script that shows the current weather in your city using Windows
 
 Before installing, make sure you have:
 
-* Python 3.12 or 3.13
+* Python 3.12 or newer
 * Windows 10/11
 * OpenWeatherMap account
 * OpenWeatherMap API key
-
-> **Note**
->
-> Python **3.14 is currently not supported** because one of the notification dependencies (`winsdk`) is not yet compatible.
-> This problem will be solved in future releases
-
 
 Create an account here:
 
@@ -88,7 +82,7 @@ install
 The installer will:
 
 * Install required Python packages
-* Create a startup file
+* Create a startup .bat script
 * Create a configuration file
 
 ---
@@ -141,7 +135,7 @@ Broken Clouds
 Temperature: 21°C
 Feels like: 19°C
 Humidity: 68%
-Wind speed: 14 km/h
+Wind speed: 5.8 m/s
 ```
 
 ---
@@ -151,7 +145,7 @@ Wind speed: 14 km/h
 * Python
 * Requests
 * OpenWeatherMap API
-* Win11Toast
+* Desktop Notifier
 
 ---
 
