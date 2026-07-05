@@ -1,12 +1,14 @@
 import subprocess
 import sys
 import os
+
 from pathlib import Path
 from time import sleep
 
 from src.core.config import CONFIG_PATH
 from src.core.config import update_config
 from src.core.config import create_config
+from src.errors.custom_errors import *
 
 STARTUP_PATH = Path(os.environ["APPDATA"]) / r"Microsoft\Windows\Start Menu\Programs\Startup\run_weather_script.bat"
 
@@ -98,8 +100,13 @@ def setup_cli():
                     try:
                         set_config()
                         print("\nConfig changed successfully.\n")
+                    except FileNotFoundError:
+                        print("Configuration file not found.")
+                    except PermissionError:
+                        print("Unable to write configuration file.")
                     except Exception as e:
-                        print(f"Failed to change config {e}\n")
+                        print(f"Unexpected error: {e}")
+ 
                 case "3" | "exit":
                     print("Exit.")
                     break
