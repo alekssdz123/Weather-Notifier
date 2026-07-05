@@ -125,21 +125,6 @@ API key: your_api_key_here
 
 ---
 
-## Example Notification
-
-```text
-Weather in Riga
-
-Broken Clouds
-
-Temperature: 21°C
-Feels like: 19°C
-Humidity: 68%
-Wind speed: 5.8 m/s
-```
-
----
-
 ## Technologies
 
 * Python
