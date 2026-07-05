@@ -1,24 +1,17 @@
-from pathlib import Path
 import json
+from pathlib import Path
+
+from src.ui.error_notifier import show_error_notification
 
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
 CONFIG_PATH = BASE_DIR / "config.json"
 
 def read_file(file_path):
-    try:
-        if Path(file_path).is_file() == False:
-            create_config(file_path)
-
-        with open(file_path, "r") as file:
-            data = json.load(file)
-        return data
-
-    except FileNotFoundError:
-        print(f"Error. File {file_path} not found.")
-    except json.JSONDecodeError:
-        print(f"Error. Failed to decode JSON from the file {file_path}")
-    except Exception:
-        print(f"Error. Failed to read file {file_path}")
+    if Path(file_path).is_file() == False:
+        create_config(file_path)
+    with open(file_path, "r") as file:
+        data = json.load(file)
+    return data
 
 def read_config():
     data = read_file(CONFIG_PATH)

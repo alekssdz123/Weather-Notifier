@@ -18,8 +18,7 @@ def format_message(response, lang):
         ),
     }
 
-
-async def show_notification(response, lang):
+async def show_notification(response, lang="EN"):
     notifier = DesktopNotifier()
     output = format_message(response, lang)
     icon_path = pathlib.Path(__file__).parent.parent.parent / "images" / "logo.png"

@@ -24,10 +24,10 @@ def check_requirements():
         import requests
         return True
     except ImportError as e:
-        print(f"Installing required packages.")
         return False
 
 def install_requirements():
+    print(f"Installing required packages.")
     requirements_file = "requirements.txt"
     subprocess.check_call([sys.executable, "-m", "pip", "install", "-r", requirements_file])
 
