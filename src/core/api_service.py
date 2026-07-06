@@ -1,27 +1,31 @@
 import requests
 
+from src.errors.custom_errors import *
 from src.core.config import read_config
 
 def get_response(url):
-    response = requests.get(url).json()
-    return response
+    response = requests.get(url)    
+    if response.status_code == 401:
+        raise InvalidApiKeyException
+    elif response.status_code == 429:
+        raise ApiLimitException
+    elif response.status_code == 404:
+        raise NotFoundException
+
+    return response.json()
 
 def getCoordinatesByLocation(city="London", country_code="UK", api_key=None):
     if api_key == None:
         return "You must set config."
     
-    url = f"http://api.openweathermap.org/geo/1.0/direct?q={city},{country_code}&appid={api_key}"
+    url = f"https://api.openweathermap.org/geo/1.0/direct?q={city},{country_code}&appid={api_key}"
     
-    try:
-        response = get_response(url)
+    response = get_response(url)
 
-        return {
-            "lat": response[0]["lat"],
-            "lon": response[0]["lon"]
-        }
-    
-    except Exception as e:
-        print(f"Failed to load data from openweather API. {e}")
+    return {
+        "lat": response[0]["lat"],
+        "lon": response[0]["lon"]
+    }
 
 
 def getLocationWeather():

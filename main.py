@@ -19,6 +19,7 @@ def check_internet():
 
 def main():    
     try:
+        lang = read_config()["lang"]
         for x in range(10):
             if not check_internet():
                 sleep(1)
@@ -31,12 +32,18 @@ def main():
         if response == None:
             raise ConfigNotSetExceiption
 
-        asyncio.run(show_notification(response, read_config()["lang"]))
+        asyncio.run(show_notification(response, lang))
 
     except NoInternetException:
-        asyncio.run(show_error_notification("no_internet", read_config()["lang"]))
+        asyncio.run(show_error_notification("no_internet", lang))
+    except ApiError:
+        asyncio.run(show_error_notification("api_unavailable", lang))
     except ConfigNotSetExceiption:
-        asyncio.run(show_error_notification("config_required", read_config()["lang"]))
+        asyncio.run(show_error_notification("config_required", lang))
+    except InvalidApiKeyException:
+        asyncio.run(show_error_notification("invalid_api_key", lang))
+    except ApiLimitException:
+        asyncio.run(show_error_notification("", lang))
     except FileNotFoundError:
         asyncio.run(show_error_notification("no_config"))
     except JSONDecodeError:
