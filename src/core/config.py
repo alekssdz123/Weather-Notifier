@@ -1,7 +1,6 @@
 import json
 from pathlib import Path
 
-from src.ui.error_notifier import show_error_notification
 
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
 CONFIG_PATH = BASE_DIR / "config.json"
