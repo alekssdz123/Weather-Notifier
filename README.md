@@ -2,6 +2,10 @@
 
 A simple Python application that displays the current weather as a desktop notification every time you start your computer.
 
+## Preview
+
+![Notification Preview](images/notification_example.png)
+
 ## Features
 
 * Current temperature (°C)
@@ -12,9 +16,6 @@ A simple Python application that displays the current weather as a desktop notif
 * English and Russian language support
 * Automatic launch on Windows startup
 
-## Preview
-
-![Notification Preview](images/notification_example.png)
 
 ## Requirements
 
