@@ -32,9 +32,7 @@ class BaseSetup:
             return False
 
     def install_requirements(self):
-        print("Installing required packages.")
-
-        subprocess.check_call([sys.executable, "-m", "pip", "install", "-r",  str(self.requirements_file)])
+        pass
 
     def get_py_path(self):
         return sys.executable

@@ -1,4 +1,7 @@
 import os
+import sys
+import subprocess
+
 from pathlib import Path
 
 from src.setup.base_setup import BaseSetup
@@ -11,6 +14,10 @@ class WindowsSetup(BaseSetup):
 
     def check_startup_file(self):
         return self.startup_path.exists()
+    
+    def install_requirements(self):
+        print("Installing required packages.")
+        subprocess.check_call([sys.executable, "-m", "pip", "install", "-r",  str(self.requirements_file)])
 
     def create_startup_file(self):
         python_path = self.get_py_path()
