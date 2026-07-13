@@ -1,4 +1,4 @@
-# Weather Script
+# Weather Notifier
 
 A simple Python application that displays the current weather as a desktop notification every time you start your computer.
 
