@@ -9,3 +9,7 @@ class LinuxSetup(BaseSetup):
 
     def create_startup_file(self):
         print("Linux startup is not configured yet.")
+
+    def install_requirements(self):
+        print("Linux requirements installation is not supported yet")
+        
