@@ -21,4 +21,4 @@ def create_setup():
 if __name__ == "__main__":
     setup = create_setup()
     if setup:
-        create_setup().setup_cli()
+        setup.setup_cli()
