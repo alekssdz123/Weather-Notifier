@@ -32,7 +32,7 @@ class BaseSetup:
             return False
 
     def install_requirements(self):
-        pass
+        raise NotImplementedError
 
     def get_py_path(self):
         return sys.executable
@@ -71,7 +71,8 @@ class BaseSetup:
     def install(self):
 
         if not self.check_requirements():
-            self.install_requirements()
+            if not self.install_requirements():
+                return
 
         print("Requirements installed")
 

@@ -18,6 +18,7 @@ class WindowsSetup(BaseSetup):
     def install_requirements(self):
         print("Installing required packages.")
         subprocess.check_call([sys.executable, "-m", "pip", "install", "-r",  str(self.requirements_file)])
+        return True
 
     def create_startup_file(self):
         python_path = self.get_py_path()
