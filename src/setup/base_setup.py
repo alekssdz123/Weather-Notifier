@@ -10,7 +10,7 @@ from src.core.config import create_config
 class BaseSetup:
 
     def __init__(self):
-        self.base_dir = Path(__file__).resolve().parent.parent
+        self.base_dir = Path(__file__).resolve().parent.parent.parent
         self.requirements_file = self.base_dir / "requirements.txt"
 
     def check_python_version(self):
