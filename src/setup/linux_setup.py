@@ -5,7 +5,7 @@ class LinuxSetup(BaseSetup):
         super().__init__()
 
     def check_startup_file(self):
-        return True
+        print("Linux startup file creating is not supported yet.")
 
     def create_startup_file(self):
         print("Linux startup is not configured yet.")
