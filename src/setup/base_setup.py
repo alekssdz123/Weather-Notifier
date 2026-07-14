@@ -77,12 +77,14 @@ class BaseSetup:
         print("Requirements installed")
 
         if not self.check_startup_file():
-            self.create_startup_file()
+            if not self.create_startup_file():
+                return
 
         print("Startup file created")
 
         if not self.check_config():
-            create_config(CONFIG_PATH)
+            if not create_config(CONFIG_PATH):
+                return
 
         print("Config.json created")
 

@@ -6,9 +6,11 @@ class LinuxSetup(BaseSetup):
 
     def check_startup_file(self):
         print("Linux startup file creating is not supported yet.")
+        return False
 
     def create_startup_file(self):
         print("Linux startup is not configured yet.")
+        return False
 
     def install_requirements(self):
         print("Linux requirements automatic installation is not supported yet.")

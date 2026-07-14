@@ -33,6 +33,8 @@ def create_config(file_path, city=None, country_code=None, api_key=None, lang=No
     json_data = json.dumps(data, indent=4)
     with open(file_path, "w") as file:
         file.write(json_data)
+        
+    return True
 
 def update_config(new_data):
     old_config = read_config()

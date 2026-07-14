@@ -31,3 +31,5 @@ class WindowsSetup(BaseSetup):
 
         with open(self.startup_path, "w") as file:
             file.write(content)
+        
+        return True
