@@ -81,7 +81,7 @@ class BaseSetup:
         print("Startup file created")
 
         if not self.check_config():
-            create_config()
+            create_config(CONFIG_PATH)
 
         print("Config.json created")
 
