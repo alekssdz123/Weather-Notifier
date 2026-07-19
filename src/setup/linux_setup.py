@@ -1,6 +1,8 @@
+import os
 from pathlib import Path
 
 from src.setup.base_setup import BaseSetup
+from src.core.config import CONFIG_PATH
 
 class LinuxSetup(BaseSetup):
     def __init__(self):
@@ -41,3 +43,9 @@ class LinuxSetup(BaseSetup):
         print("3. Install required packages:\npython3 -m pip install -r requirements.txt")
 
         return False
+    
+    def delete_startup_file(self):
+        os.remove(self.startup_path)
+
+    def delete_config_file(self):
+        os.remove(CONFIG_PATH)
