@@ -1,4 +1,5 @@
 import subprocess
+import platform
 import sys
 
 from pathlib import Path
@@ -139,6 +140,9 @@ class BaseSetup:
                             print("Unable to write configuration file.")
 
                     case "3" | "uninstall":
+                        if platform.system() == "Linux":
+                            print("Uninstallation is not tested on linux yet.")
+
                         print("Confirm uninstallation (y/n): ", end="")
                         if input().lower().replace(" ", "") == "y":
                             self.uninstall()
