@@ -69,7 +69,6 @@ class BaseSetup:
         update_config(data)
 
     def install(self):
-
         if not self.check_requirements():
             if not self.install_requirements():
                 return
@@ -87,6 +86,21 @@ class BaseSetup:
                 return
 
         print("Config.json created")
+    
+
+    def delete_startup_file():
+        raise NotImplementedError
+
+    def delete_config_file():
+        raise NotImplementedError
+
+    def uninstall(self):
+        if self.check_startup_file():
+            self.delete_startup_file()
+
+        if self.check_config():
+            self.delete_config_file()
+
 
     def setup_cli(self):
 
@@ -102,7 +116,8 @@ class BaseSetup:
                     "Options:\n"
                     "1. Install\n"
                     "2. Set config\n"
-                    "3. Exit\n"
+                    "3. Uninstall\n"
+                    "4. Exit\n"
                 )
 
                 option = input("Select your option: ")
@@ -123,7 +138,15 @@ class BaseSetup:
                         except PermissionError:
                             print("Unable to write configuration file.")
 
-                    case "3" | "exit":
+                    case "3" | "uninstall":
+                        print("Confirm uninstallation (y/n): ", end="")
+                        if input().lower().replace(" ", "") == "y":
+                            self.uninstall()
+                            print("Weather notifier uninstalled.")
+                            break
+                        print("Uninstallation canceled.")
+
+                    case "4" | "exit":
                         print("Exit.")
                         break
 
