@@ -7,6 +7,8 @@ from pathlib import Path
 from src.core.config import CONFIG_PATH
 from src.core.config import update_config
 from src.core.config import create_config
+from src.updater.updater import check_new_release
+from src.updater.updater import get_last_release
 
 class BaseSetup:
 
@@ -117,8 +119,9 @@ class BaseSetup:
                     "Options:\n"
                     "1. Install\n"
                     "2. Set config\n"
-                    "3. Uninstall\n"
-                    "4. Exit\n"
+                    "3. Update\n"
+                    "4. Uninstall\n"
+                    "5. Exit\n"
                 )
 
                 option = input("Select your option: ")
@@ -138,9 +141,21 @@ class BaseSetup:
 
                         except PermissionError:
                             print("Unable to write configuration file.")
+                    
+                    case "3" | "update":
+                        last_release = check_new_release()
+                        if not last_release:
+                            print("\nLast release installed.")
+                            print("Nothing to update.\n")
+                            continue
+                        print(f"\nVersion {get_last_release()["tag_name"]} avaible.")
+                        print("Install it? (y/n): ", end="")
 
-                    case "3" | "uninstall":
-                        if platform.system() == "Linux":
+                        if input().lower().replace(" ", "") == "y":
+                            pass
+
+                    case "4" | "uninstall":
+                        if platform.system() == "Linux": # TEST IT LATER
                             print("Uninstallation is not tested on linux yet.")
 
                         print("Confirm uninstallation (y/n): ", end="")
@@ -150,7 +165,7 @@ class BaseSetup:
                             break
                         print("Uninstallation canceled.")
 
-                    case "4" | "exit":
+                    case "5" | "exit":
                         print("Exit.")
                         break
 
