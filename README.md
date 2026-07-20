@@ -4,7 +4,7 @@ A simple Python application that displays the current weather as a desktop notif
 
 ## Preview
 
-![Notification Preview](images/notification_example.png)
+![Notification Preview](images/windows_example.gif)
 
 ## Features
 
