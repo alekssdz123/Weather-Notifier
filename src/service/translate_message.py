@@ -18,7 +18,8 @@ translations = {
         "startup_failed": "Не удалось создать автозапуск.",
         "requirements_failed": "Не удалось установить зависимости.",
         "python_version": "Требуется Python 3.12 или новее.",
-        "unexpected": "Произошла непредвиденная ошибка."
+        "unexpected": "Произошла непредвиденная ошибка.",
+        "api_limit": "Лимит API запросов израсходован."
     },
 
     "EN": {
@@ -40,6 +41,7 @@ translations = {
         "startup_failed": "Failed to create the startup script.",
         "requirements_failed": "Failed to install required packages.",
         "python_version": "Python 3.12 or newer is required.",
-        "unexpected": "An unexpected error occurred."
+        "unexpected": "An unexpected error occurred.",
+        "api_limit": "API request limit exceeded"
     },
 }

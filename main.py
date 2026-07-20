@@ -43,7 +43,7 @@ def main():
     except InvalidApiKeyException:
         asyncio.run(show_error_notification("invalid_api_key", lang))
     except ApiLimitException:
-        asyncio.run(show_error_notification("", lang))
+        asyncio.run(show_error_notification("api_limit", lang))
     except FileNotFoundError:
         asyncio.run(show_error_notification("no_config"))
     except JSONDecodeError:
