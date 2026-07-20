@@ -43,11 +43,12 @@ class LinuxSetup(BaseSetup):
         return True
 
     def install_requirements(self):
-        print("Linux requirements automatic installation is not supported yet.")
-        print("Please install requirements by yourself.")
-        print("1. Create virtual environment:\npython3 -m venv .venv")
-        print("2. Activate it:\nsource .venv/bin/activate")
-        print("3. Install required packages:\npython3 -m pip install -r requirements.txt")
+        print("Automatic dependency installation is not supported on Linux yet.\n")
+        print("Please run:")
+        print("python3 -m venv .venv")
+        print("source .venv/bin/activate")
+        print("python3 -m pip install -r requirements.txt")
+        print("\nThen run setup again.")
 
         return False
     
