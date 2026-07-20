@@ -10,6 +10,12 @@ class LinuxSetup(BaseSetup):
 
         self.startup_path = Path.home() / ".config/autostart/weather-notifier.desktop"
 
+    def get_py_path(self):
+        venv_py = self.base_dir / ".venv" / "bin" / "python"
+        if venv_py.exists():
+            return venv_py.resolve()
+        return super().get_py_path()
+
     def check_startup_file(self):
         return self.startup_path.exists()
 
