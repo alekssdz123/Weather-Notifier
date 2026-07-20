@@ -1,6 +1,6 @@
 # Weather Notifier
 
-A simple Python application that displays the current weather as a desktop notification every time you start your computer.
+A simple Python application that displays the current weather as a desktop notification when your computer starts.
 
 ## Preview
 
@@ -11,22 +11,35 @@ A simple Python application that displays the current weather as a desktop notif
 * Current temperature (°C)
 * Feels-like temperature (°C)
 * Humidity (%)
-* Wind speed (km/h)
+* Wind speed (m/s)
 * Weather description
 * English and Russian language support
-* Automatic launch on Windows startup
+* Automatic startup on:
 
+  * Windows
+  * Linux (desktop environments with autostart support)
+* Automatic configuration creation
+* Application uninstall option
+* OpenWeatherMap API error handling
+
+---
 
 ## Requirements
 
 Before installing, make sure you have:
 
 * Python 3.12 or newer
-* Windows 10/11
 * OpenWeatherMap account
 * OpenWeatherMap API key
 
-Create an account here:
+Supported operating systems:
+
+* Windows 10/11
+* Linux distributions with a graphical desktop environment
+
+macOS support is planned for future releases.
+
+Create an OpenWeatherMap account:
 
 https://home.openweathermap.org/users/sign_in
 
@@ -36,9 +49,9 @@ https://www.python.org/downloads
 
 ---
 
-## Installation
+# Installation
 
-### Clone the repository
+## Clone the repository
 
 ```bash
 git clone https://github.com/alekssdz123/Weather-script.git
@@ -53,19 +66,12 @@ Or download the repository as a ZIP archive:
 
 ---
 
-### Run setup
+# Windows Installation
 
-Open a terminal in the project folder and run:
+Run:
 
 ```bash
 python setup.py
-```
-
-You will see:
-
-```text
-Options:
-1. Install  2. Set config  3. Exit
 ```
 
 Select:
@@ -74,7 +80,7 @@ Select:
 1
 ```
 
-or
+or:
 
 ```text
 install
@@ -83,12 +89,57 @@ install
 The installer will:
 
 * Install required Python packages
-* Create a startup .bat script
+* Create a Windows startup script
 * Create a configuration file
+
+After installation, the application will automatically start when Windows starts.
 
 ---
 
-## Configuration
+# Linux Installation
+
+Linux currently requires manual dependency installation because package management differs between distributions.
+
+Create a virtual environment:
+
+```bash
+python3 -m venv .venv
+```
+
+Activate it:
+
+```bash
+source .venv/bin/activate
+```
+
+Install dependencies:
+
+```bash
+python3 -m pip install -r requirements.txt
+```
+
+After installing dependencies, run:
+
+```bash
+python3 setup.py
+```
+
+Select:
+
+```text
+1
+```
+
+The installer will:
+
+* Create a Linux autostart `.desktop` file
+* Create a configuration file
+
+The application will start automatically after logging into your desktop session.
+
+---
+
+# Configuration
 
 Run setup again:
 
@@ -102,7 +153,7 @@ Select:
 2
 ```
 
-or
+or:
 
 ```text
 setconfig
@@ -126,7 +177,41 @@ API key: your_api_key_here
 
 ---
 
-## Technologies
+# Uninstallation
+
+Run:
+
+```bash
+python setup.py
+```
+
+Select:
+
+```text
+3
+```
+
+or:
+
+```text
+uninstall
+```
+
+The installer will remove:
+
+* Startup configuration
+* Application configuration file
+
+---
+
+# Known Issues
+
+* Linux dependency installation is currently manual.
+* macOS is not supported yet.
+* Linux functionality has been tested only on Ubuntu 24.04
+
+
+# Technologies
 
 * Python
 * Requests
@@ -135,6 +220,6 @@ API key: your_api_key_here
 
 ---
 
-## License
+# License
 
 This project is licensed under the MIT License.
