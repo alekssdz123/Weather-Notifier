@@ -28,7 +28,6 @@ class LinuxSetup(BaseSetup):
             "[Desktop Entry]\n"
             "Type=Application\n"
             "Name=Weather Notifier\n"
-            "Comment=Weather notifier\n"
             f"Path={self.base_dir.resolve()}\n"
             f"Exec=\"{py_path}\" \"{main_path}\"\n"
             "Terminal=false\n"
