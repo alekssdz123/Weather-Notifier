@@ -9,6 +9,7 @@ from src.core.config import update_config
 from src.core.config import create_config
 from src.updater.updater import check_new_release
 from src.updater.updater import get_last_release
+from src.updater.updater import update
 
 class BaseSetup:
 
@@ -152,7 +153,8 @@ class BaseSetup:
                         print("Install it? (y/n): ", end="")
 
                         if input().lower().replace(" ", "") == "y":
-                            pass
+                            update()
+                            break
 
                     case "4" | "uninstall":
                         if platform.system() == "Linux": # TEST IT LATER
