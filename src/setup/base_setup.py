@@ -89,10 +89,10 @@ class BaseSetup:
         print("Config.json created")
     
 
-    def delete_startup_file():
+    def delete_startup_file(self):
         raise NotImplementedError
 
-    def delete_config_file():
+    def delete_config_file(self):
         raise NotImplementedError
 
     def uninstall(self):
