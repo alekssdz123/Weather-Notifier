@@ -23,7 +23,7 @@ class LinuxSetup(BaseSetup):
             "Type=Application\n"
             "Name=Weather Notifier\n"
             "Comment=Weather notifier\n"
-            f"Path={self.base_dir}"
+            f"Path={self.base_dir.resolve()}\n"
             f"Exec=\"{py_path}\" \"{main_path}\"\n"
             "Terminal=false\n"
             "StartupNotify=false\n"
@@ -32,6 +32,8 @@ class LinuxSetup(BaseSetup):
 
         with open(self.startup_path, "w") as file:
             file.write(content)
+        
+        os.chmod(self.startup_path, 0o755)
         
         return True
 
