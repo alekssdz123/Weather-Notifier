@@ -73,9 +73,10 @@ def update():
 
         temp_dir = unpack_archive(archive_path)
         print("Zip archive with update unpacked.")
-
-        replace_dirs(temp_dir)
-        print("Current directory replaced with temporary directory.")
-
-        delete_temp_dir(temp_dir, archive_path)
-        print("Temporary directory removed.")
+        
+        try:
+            replace_dirs(temp_dir)
+            print("Current directory replaced with temporary directory.")
+        finally:
+            delete_temp_dir(temp_dir, archive_path)
+            print("Temporary directory removed.")

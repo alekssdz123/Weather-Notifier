@@ -15,12 +15,13 @@ A simple Python application that displays the current weather as a desktop notif
 * Weather description
 * English and Russian language support
 * Automatic startup on:
-
   * Windows
   * Linux (desktop environments with autostart support)
 * Automatic configuration creation
 * Application uninstall option
+* Built-in application updater
 * OpenWeatherMap API error handling
+* OS-specific setup architecture
 
 ---
 
@@ -54,8 +55,8 @@ https://www.python.org/downloads
 ## Clone the repository
 
 ```bash
-git clone https://github.com/alekssdz123/Weather-script.git
-cd Weather-script
+git clone https://github.com/alekssdz123/Weather-Notifier.git
+cd Weather-Notifier
 ```
 
 Or download the repository as a ZIP archive:
@@ -118,7 +119,7 @@ Install dependencies:
 python3 -m pip install -r requirements.txt
 ```
 
-After installing dependencies, run:
+Run setup:
 
 ```bash
 python3 setup.py
@@ -141,7 +142,7 @@ The application will start automatically after logging into your desktop session
 
 # Configuration
 
-Run setup again:
+Run setup:
 
 ```bash
 python setup.py
@@ -177,7 +178,9 @@ API key: your_api_key_here
 
 ---
 
-# Uninstallation
+# Updating
+
+Weather Notifier includes a built-in updater.
 
 Run:
 
@@ -189,6 +192,36 @@ Select:
 
 ```text
 3
+```
+
+or:
+
+```text
+update
+```
+
+The updater will:
+
+* Check the latest GitHub release
+* Download the newest version
+* Replace application files
+* Keep user configuration
+* Keep the existing virtual environment
+
+---
+
+# Uninstallation
+
+Run:
+
+```bash
+python setup.py
+```
+
+Select:
+
+```text
+4
 ```
 
 or:
@@ -207,9 +240,11 @@ The installer will remove:
 # Known Issues
 
 * Linux dependency installation is currently manual.
+* Linux functionality has been tested only on Ubuntu 24.04.
 * macOS is not supported yet.
-* Linux functionality has been tested only on Ubuntu 24.04
+* Windows console window is still visible during startup (planned improvement).
 
+---
 
 # Technologies
 
@@ -217,6 +252,7 @@ The installer will remove:
 * Requests
 * OpenWeatherMap API
 * Desktop Notifier
+* GitHub Releases API
 
 ---
 
