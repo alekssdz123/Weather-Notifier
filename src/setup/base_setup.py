@@ -5,6 +5,8 @@ import sys
 from pathlib import Path
 
 from src.core.config import CONFIG_PATH
+from src.updater.version import CURRENT_VERSION
+
 from src.core.config import update_config
 from src.core.config import create_config
 from src.updater.updater import check_new_release
@@ -150,6 +152,7 @@ class BaseSetup:
                             print("Nothing to update.\n")
                             continue
                         print(f"\nVersion {get_last_release()["tag_name"]} avaible.")
+                        print(f"Current version {CURRENT_VERSION}.")
                         print("Install it? (y/n): ", end="")
 
                         if input().lower().replace(" ", "") == "y":
