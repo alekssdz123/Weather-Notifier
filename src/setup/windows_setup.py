@@ -20,8 +20,18 @@ class WindowsSetup(BaseSetup):
         print("Installing required packages.")
         subprocess.check_call([sys.executable, "-m", "pip", "install", "-r",  str(self.requirements_file)])
         return True
+    
+    def delete_old_startup_file(self):
+        '''
+        Method deletes old .bat file from older releases if it exists
+        '''
+        old_autorun_file = Path(os.environ["APPDATA"]) / r"Microsoft\Windows\Start Menu\Programs\Startup" / "run_weather_script.bat"
+        if old_autorun_file.exists():
+            os.remove(old_autorun_file)
 
     def create_startup_file(self):
+        self.delete_old_startup_file()
+
         python_path = self.get_py_path()
 
         if Path(python_path).name == "python.exe":
@@ -33,10 +43,10 @@ class WindowsSetup(BaseSetup):
 
         script = f"""
 $WshShell = New-Object -ComObject WScript.Shell
-$Shortcut = $WshShell.CreateShortcut('"{self.startup_path}"')
-$Shortcut.TargetPath = '"{python_path}"'
-$Shortcut.Arguments = '"{main_path}"'
-$Shortcut.WorkingDirectory = '"{self.base_dir}"'
+$Shortcut = $WshShell.CreateShortcut('{self.startup_path}')
+$Shortcut.TargetPath = '{python_path}'
+$Shortcut.Arguments = '{main_path}'
+$Shortcut.WorkingDirectory = '{self.base_dir}'
 $Shortcut.Save()
         """
 
