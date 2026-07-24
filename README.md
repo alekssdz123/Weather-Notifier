@@ -20,8 +20,6 @@ A simple Python application that displays the current weather as a desktop notif
 * Automatic configuration creation
 * Application uninstall option
 * Built-in application updater
-* OpenWeatherMap API error handling
-* OS-specific setup architecture
 
 ---
 
