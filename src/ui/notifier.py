@@ -3,6 +3,7 @@ import platform
 
 from desktop_notifier import DesktopNotifier, Icon
 
+from src.ui.helper.icon_helper import select_icon
 from src.service.weather_service import prepareData
 from src.service.translate_message import translations
 
@@ -25,7 +26,7 @@ async def show_notification(response, lang):
         lang = "EN"
     notifier = DesktopNotifier()
     output = format_message(response, lang)
-    icon_path = pathlib.Path(__file__).parent.parent.parent / "images" / "logo.png"
+    icon_path = select_icon()
     
     if platform.system() == "Windows":
         await notifier.send(
